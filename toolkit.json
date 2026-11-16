@@ -1,0 +1,1565 @@
+{
+  "schema_version": 1,
+  "checked": "2026-11-17",
+  "java_home": "runtime/java/jdk-25.0.5+8",
+  "tools": [
+    {
+      "id": "mesen",
+      "name": "Mesen Community Edition",
+      "platform": "FC／NES、SFC／SNES、GB／GBC",
+      "use": "暂停执行、查看内存与图像，帮助定位命中、移动、计时等规则。",
+      "limit": "原 Mesen2 已归档；这里链接的是社区维护版。",
+      "source": "https://github.com/nesdev-org/MesenCE",
+      "mode": "界面＋Lua 脚本",
+      "version": "2.2.1",
+      "status": "启动检查通过，未载入游戏",
+      "command": [
+        "{root}/apps/mesen/Mesen.exe"
+      ],
+      "check_paths": [
+        "apps/mesen/Mesen.exe"
+      ],
+      "primary": true,
+      "folder": "apps/mesen",
+      "verification": {
+        "summary": "启动检查通过，未载入游戏",
+        "passed": true,
+        "test": "process-startup",
+        "arguments": [],
+        "exit_code": 1,
+        "stopped_after_timeout": true,
+        "log": "logs/help-mesen.txt"
+      }
+    },
+    {
+      "id": "mgba",
+      "name": "mGBA",
+      "platform": "GBA；也支持 GB／GBC",
+      "use": "运行游戏、记录画面，结合调试器查看内存与执行过程。",
+      "limit": "不会自动把整个 ROM 变成可读源码。",
+      "source": "https://github.com/mgba-emu/mgba",
+      "mode": "界面＋Lua／GDB",
+      "version": "0.10.5",
+      "status": "启动检查通过，未载入游戏",
+      "command": [
+        "{root}/apps/mgba/mGBA-0.10.5-win64/mGBA.exe"
+      ],
+      "check_paths": [
+        "apps/mgba/mGBA-0.10.5-win64/mGBA.exe"
+      ],
+      "primary": true,
+      "folder": "apps/mgba/mGBA-0.10.5-win64",
+      "verification": {
+        "summary": "启动检查通过，未载入游戏",
+        "passed": true,
+        "test": "process-startup",
+        "arguments": [],
+        "exit_code": 1,
+        "stopped_after_timeout": true,
+        "log": "logs/help-mgba.txt"
+      }
+    },
+    {
+      "id": "ndspy",
+      "name": "ndspy",
+      "platform": "NDS",
+      "use": "读取 ROM 文件目录，以及 NARC、文本、音频等受支持格式。",
+      "limit": "各游戏的私有格式可能需要另写解析器。",
+      "source": "https://github.com/RoadrunnerWMC/ndspy",
+      "mode": "Python 库／命令行",
+      "version": "4.2.0",
+      "status": "合成 NDS 文件解析通过",
+      "command": [
+        "{root}/runtime/python/python.exe",
+        "{root}/helpers/nds_info.py"
+      ],
+      "check_paths": [
+        "runtime/python/Lib/site-packages/ndspy"
+      ],
+      "primary": true,
+      "folder": "runtime/python/Lib/site-packages/ndspy",
+      "verification": {
+        "summary": "合成 NDS 文件解析通过",
+        "passed": true,
+        "test": "synthetic-rom-file-inventory",
+        "input": "work/smoke-samples/test.nds"
+      }
+    },
+    {
+      "id": "desmume",
+      "name": "DeSmuME",
+      "platform": "NDS",
+      "use": "运行双屏游戏，配合内存工具和 Lua 观察状态变化。",
+      "limit": "调试与 Lua 功能因电脑系统和构建版本而异；先查 Windows 版。",
+      "source": "https://github.com/TASEmulators/desmume",
+      "mode": "界面＋Lua 脚本",
+      "version": "release_0_9_13",
+      "status": "启动检查通过，未载入游戏",
+      "command": [
+        "{root}/apps/desmume/DeSmuME_0.9.13_x64.exe"
+      ],
+      "check_paths": [
+        "apps/desmume/DeSmuME_0.9.13_x64.exe"
+      ],
+      "primary": true,
+      "folder": "apps/desmume",
+      "verification": {
+        "summary": "启动检查通过，未载入游戏",
+        "passed": true,
+        "test": "process-startup",
+        "arguments": [],
+        "exit_code": 1,
+        "stopped_after_timeout": true,
+        "log": "logs/help-desmume.txt"
+      }
+    },
+    {
+      "id": "bizhawk",
+      "name": "BizHawk",
+      "platform": "MD、N64 等多平台",
+      "use": "录制和回放操作，逐帧检查，查看内存。",
+      "limit": "每个平台核心的调试能力不同，先确认可用接口。",
+      "source": "https://github.com/TASEmulators/BizHawk",
+      "mode": "界面＋Lua／C#",
+      "version": "2.11.1",
+      "status": "启动检查通过，未载入游戏",
+      "command": [
+        "{root}/apps/bizhawk/EmuHawk.exe"
+      ],
+      "check_paths": [
+        "apps/bizhawk/EmuHawk.exe"
+      ],
+      "primary": true,
+      "folder": "apps/bizhawk",
+      "verification": {
+        "summary": "启动检查通过，未载入游戏",
+        "passed": true,
+        "test": "process-startup",
+        "arguments": [],
+        "exit_code": 1,
+        "stopped_after_timeout": true,
+        "log": "logs/help-bizhawk.txt"
+      }
+    },
+    {
+      "id": "pcsx-redux",
+      "name": "PCSX-Redux",
+      "platform": "PS1／PSX",
+      "use": "面向开发与逆向的模拟器，可看内存、图像和程序执行。",
+      "limit": "需要 AI 先定位目标地址；不会直接给出完整源码。",
+      "source": "https://github.com/pcsx-redux/pcsx-redux",
+      "mode": "界面＋Lua／GDB",
+      "version": "31729.20261116.32.x64",
+      "status": "启动检查通过，未载入游戏",
+      "command": [
+        "{root}/apps/pcsx-redux/pcsx-redux.exe"
+      ],
+      "check_paths": [
+        "apps/pcsx-redux/pcsx-redux.exe"
+      ],
+      "primary": true,
+      "folder": "apps/pcsx-redux",
+      "verification": {
+        "summary": "启动检查通过，未载入游戏",
+        "passed": true,
+        "test": "process-startup",
+        "arguments": [],
+        "exit_code": 1,
+        "stopped_after_timeout": true,
+        "log": "logs/help-pcsx-redux.txt"
+      }
+    },
+    {
+      "id": "splat",
+      "name": "splat",
+      "platform": "N64／PS1／PS2／PSP",
+      "use": "按配置把程序拆成代码和数据片段，服务后续还原。",
+      "limit": "需要格式与地址配置，并非一键反编译器。",
+      "source": "https://github.com/ethteck/splat",
+      "mode": "命令行",
+      "version": "0.50.1",
+      "status": "命令行检查通过",
+      "command": [
+        "{root}/runtime/python/python.exe",
+        "-m",
+        "splat"
+      ],
+      "check_paths": [
+        "runtime/python/Lib/site-packages/splat"
+      ],
+      "primary": true,
+      "folder": "runtime/python/Lib/site-packages/splat",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "--version"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-splat.txt"
+      }
+    },
+    {
+      "id": "pcsx2",
+      "name": "PCSX2",
+      "platform": "PS2",
+      "use": "内置调试器可查看内存、执行指令和函数信息。",
+      "limit": "运行环境和 BIOS 要按官方要求准备。",
+      "source": "https://github.com/PCSX2/pcsx2",
+      "mode": "界面＋命令行启动",
+      "version": "v2.8.2",
+      "status": "启动检查通过，未载入游戏",
+      "command": [
+        "{root}/apps/pcsx2/pcsx2-qt.exe"
+      ],
+      "check_paths": [
+        "apps/pcsx2/pcsx2-qt.exe"
+      ],
+      "primary": true,
+      "folder": "apps/pcsx2",
+      "verification": {
+        "summary": "启动检查通过，未载入游戏",
+        "passed": true,
+        "test": "process-startup",
+        "arguments": [],
+        "exit_code": 1,
+        "stopped_after_timeout": true,
+        "log": "logs/help-pcsx2.txt"
+      }
+    },
+    {
+      "id": "ppsspp",
+      "name": "PPSSPP",
+      "platform": "PSP",
+      "use": "调试 PSP 游戏；提供可由脚本连接的调试接口。",
+      "limit": "先核对版本与接口；能模拟运行不代表代码已还原。",
+      "source": "https://github.com/hrydgard/ppsspp",
+      "mode": "界面＋WebSocket 接口",
+      "version": "v1.20.4",
+      "status": "启动检查通过，未载入游戏",
+      "command": [
+        "{root}/apps/ppsspp/PPSSPPWindows64.exe"
+      ],
+      "check_paths": [
+        "apps/ppsspp/PPSSPPWindows64.exe"
+      ],
+      "primary": true,
+      "folder": "apps/ppsspp",
+      "verification": {
+        "summary": "启动检查通过，未载入游戏",
+        "passed": true,
+        "test": "process-startup",
+        "arguments": [],
+        "exit_code": 1,
+        "stopped_after_timeout": true,
+        "log": "logs/help-ppsspp.txt"
+      }
+    },
+    {
+      "id": "dolphin",
+      "name": "Dolphin",
+      "platform": "GameCube／Wii",
+      "use": "运行游戏，并通过调试界面检查代码、内存和断点。",
+      "limit": "复杂格式和玩法含义仍需单独分析。",
+      "source": "https://github.com/dolphin-emu/dolphin",
+      "mode": "界面＋命令行启动",
+      "version": "2609b",
+      "status": "命令行检查通过",
+      "command": [
+        "{root}/apps/dolphin/Dolphin-x64/Dolphin.exe"
+      ],
+      "check_paths": [
+        "apps/dolphin/Dolphin-x64/Dolphin.exe"
+      ],
+      "primary": true,
+      "folder": "apps/dolphin/Dolphin-x64",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "--version"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-dolphin.txt"
+      }
+    },
+    {
+      "id": "assetripper",
+      "name": "AssetRipper",
+      "platform": "Unity 游戏",
+      "use": "分析 Unity 资源与依赖，并转换为引擎可用格式。",
+      "limit": "恢复质量依版本而异；导出资源不等于完整可运行工程。另有付费增强版。",
+      "source": "https://github.com/AssetRipper/AssetRipper",
+      "mode": "图形界面",
+      "version": "2.0.0",
+      "status": "命令行检查通过",
+      "command": [
+        "{root}/apps/assetripper/AssetRipper.GUI.Free.exe"
+      ],
+      "check_paths": [
+        "apps/assetripper/AssetRipper.GUI.Free.exe"
+      ],
+      "primary": true,
+      "folder": "apps/assetripper",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "--help"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-assetripper.txt"
+      }
+    },
+    {
+      "id": "ilspy",
+      "name": "ILSpy／ILSpyCmd",
+      "platform": "Unity Mono／其他 .NET 程序",
+      "use": "把受支持的 .NET DLL 转为便于阅读的 C# 代码。",
+      "limit": "不能直接还原 IL2CPP 的原生机器码。",
+      "source": "https://github.com/icsharpcode/ILSpy",
+      "mode": "界面＋命令行",
+      "version": "v11.2",
+      "status": "启动检查通过，未载入游戏",
+      "command": [
+        "{root}/apps/ilspy/ILSpy.exe"
+      ],
+      "check_paths": [
+        "apps/ilspy/ILSpy.exe"
+      ],
+      "primary": true,
+      "folder": "apps/ilspy",
+      "verification": {
+        "summary": "启动检查通过，未载入游戏",
+        "passed": true,
+        "test": "process-startup",
+        "arguments": [],
+        "exit_code": 1,
+        "stopped_after_timeout": true,
+        "log": "logs/help-ilspy.txt"
+      }
+    },
+    {
+      "id": "cpp2il",
+      "name": "Cpp2IL",
+      "platform": "Unity IL2CPP",
+      "use": "结合程序和元数据分析类型、方法，并尝试恢复代码。",
+      "limit": "仍在开发，恢复不完整；常需程序文件与 global-metadata.dat。",
+      "source": "https://github.com/SamboyCoding/Cpp2IL",
+      "mode": "命令行",
+      "version": "2022.0.7",
+      "status": "命令行检查通过",
+      "command": [
+        "{root}/apps/cpp2il/Cpp2IL-2022.0.7-Windows.exe"
+      ],
+      "check_paths": [
+        "apps/cpp2il/Cpp2IL-2022.0.7-Windows.exe"
+      ],
+      "primary": true,
+      "folder": "apps/cpp2il",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "--help"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-cpp2il.txt"
+      }
+    },
+    {
+      "id": "fmodel",
+      "name": "FModel",
+      "platform": "Unreal Engine 4／5",
+      "use": "浏览资源包，查看数据，预览或导出模型、动画等资源。",
+      "limit": "是资源与数据查看器，不会还原完整 C++ 游戏逻辑。",
+      "source": "https://github.com/4sval/FModel",
+      "mode": "图形界面",
+      "version": "nov-2026",
+      "status": "启动检查通过，未载入游戏",
+      "command": [
+        "{root}/apps/fmodel/FModel.exe"
+      ],
+      "check_paths": [
+        "apps/fmodel/FModel.exe"
+      ],
+      "primary": true,
+      "folder": "apps/fmodel",
+      "verification": {
+        "summary": "启动检查通过，未载入游戏",
+        "passed": true,
+        "test": "process-startup",
+        "arguments": [],
+        "exit_code": 1,
+        "stopped_after_timeout": true,
+        "log": "logs/help-fmodel.txt"
+      }
+    },
+    {
+      "id": "cue4parse",
+      "name": "CUE4Parse",
+      "platform": "Unreal Engine 4／5",
+      "use": "FModel 使用的解析库，适合批量读取资产数据。",
+      "limit": "需要匹配游戏与引擎版本；特殊格式另做适配。",
+      "source": "https://github.com/FabianFG/CUE4Parse",
+      "mode": "C# 库",
+      "version": "1.2.2.202611",
+      "status": "开发库离线编译通过",
+      "command": [],
+      "check_paths": [
+        "apps/cue4parse-sdk/LocalCue4Parse.csproj",
+        "cache/nuget/cue4parse/1.2.2.202611"
+      ],
+      "primary": true,
+      "folder": "apps/cue4parse-sdk",
+      "note": "作为 C# 库使用；本地模板可离线编译，需要按游戏编写解析程序。",
+      "verification": {
+        "summary": "开发库离线编译通过",
+        "passed": true,
+        "test": "local-sdk-build-no-restore",
+        "version": "1.2.2.202611",
+        "log": "logs/cue4parse-build.txt"
+      }
+    },
+    {
+      "id": "gdre",
+      "name": "GDRE Tools",
+      "platform": "Godot 2／3／4",
+      "use": "拆 PCK 包、反编译受支持的 GDScript，并尝试恢复项目。",
+      "limit": "GDScript 支持不代表 C# 或原生扩展也能完整恢复。",
+      "source": "https://github.com/GDRETools/gdsdecomp",
+      "mode": "界面＋命令行",
+      "version": "v2.7.4",
+      "status": "命令行检查通过",
+      "command": [
+        "{root}/apps/gdre/gdre_tools.exe"
+      ],
+      "check_paths": [
+        "apps/gdre/gdre_tools.exe"
+      ],
+      "primary": true,
+      "folder": "apps/gdre",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "--headless",
+          "--help"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-gdre.txt"
+      }
+    },
+    {
+      "id": "quickbms",
+      "name": "QuickBMS",
+      "platform": "多种游戏资源包",
+      "use": "依照对应的格式脚本，从资源包提取内部文件。",
+      "limit": "同名后缀可能格式不同；解包后还要继续解释数据。",
+      "source": "https://aluigi.altervista.org/quickbms.htm",
+      "mode": "命令行＋格式脚本",
+      "version": "0.12",
+      "status": "合成资源包解包通过",
+      "command": [
+        "{root}/apps/quickbms/quickbms.exe"
+      ],
+      "check_paths": [
+        "apps/quickbms/quickbms.exe"
+      ],
+      "primary": true,
+      "folder": "apps/quickbms",
+      "verification": {
+        "summary": "合成资源包解包通过",
+        "passed": true,
+        "test": "synthetic-archive-extraction",
+        "exit_code": 0
+      }
+    },
+    {
+      "id": "ghidra",
+      "name": "Ghidra",
+      "platform": "PC 及多种处理器程序",
+      "use": "把机器码转成汇编与近似代码，分析函数之间的关系。",
+      "limit": "输出是分析结果，不能当成原作者源码或直接编译。",
+      "source": "https://github.com/NationalSecurityAgency/ghidra",
+      "mode": "界面＋脚本／无界面批处理",
+      "version": "Ghidra_12.2_build",
+      "status": "无界面导入验证通过",
+      "command": [
+        "{root}/apps/ghidra/ghidra_12.2_PUBLIC/ghidraRun.bat"
+      ],
+      "check_paths": [
+        "apps/ghidra/ghidra_12.2_PUBLIC/ghidraRun.bat"
+      ],
+      "primary": true,
+      "folder": "apps/ghidra/ghidra_12.2_PUBLIC",
+      "verification": {
+        "summary": "无界面导入验证通过",
+        "passed": true,
+        "test": "synthetic-x86-binary-import-without-analysis",
+        "arguments": [
+          "F:\\GameAnalysisToolkit\\work\\smoke-samples\\ghidra-projects",
+          "LocalSmoke",
+          "-import",
+          "F:\\GameAnalysisToolkit\\work\\smoke-samples\\return7.bin",
+          "-loader",
+          "BinaryLoader",
+          "-processor",
+          "x86:LE:32:default",
+          "-noanalysis",
+          "-overwrite"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-ghidra-headless.txt"
+      }
+    },
+    {
+      "id": "x64dbg",
+      "name": "x64dbg",
+      "platform": "Windows x86／x64",
+      "use": "运行时停在指定位置，观察内存与代码如何变化。",
+      "limit": "是 Windows 原生程序调试器，不直接调试主机 ROM。",
+      "source": "https://github.com/x64dbg/x64dbg",
+      "mode": "界面＋脚本／插件",
+      "version": "2026.05.27",
+      "status": "启动检查通过，未载入游戏",
+      "command": [
+        "{root}/apps/x64dbg/release/x64/x64dbg.exe"
+      ],
+      "check_paths": [
+        "apps/x64dbg/release/x64/x64dbg.exe"
+      ],
+      "primary": true,
+      "folder": "apps/x64dbg/release/x64",
+      "verification": {
+        "summary": "启动检查通过，未载入游戏",
+        "passed": true,
+        "test": "process-startup",
+        "arguments": [],
+        "exit_code": 1,
+        "stopped_after_timeout": true,
+        "log": "logs/help-x64dbg.txt"
+      }
+    },
+    {
+      "id": "apktool",
+      "name": "Apktool",
+      "platform": "Android APK",
+      "use": "解码资源、清单和底层指令，整理包内目录结构。",
+      "limit": "不会把所有逻辑恢复成 Java，也不会还原原生库。",
+      "source": "https://github.com/iBotPeaches/Apktool",
+      "mode": "命令行",
+      "version": "v3.0.3",
+      "status": "命令行检查通过",
+      "command": [
+        "{root}/runtime/java/jdk-25.0.5+8/bin/java.exe",
+        "-jar",
+        "{root}/apps/apktool/apktool_3.0.3.jar"
+      ],
+      "check_paths": [
+        "apps/apktool/apktool_3.0.3.jar"
+      ],
+      "primary": true,
+      "folder": "apps/apktool",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "--version"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-apktool.txt"
+      }
+    },
+    {
+      "id": "jadx",
+      "name": "JADX",
+      "platform": "Android DEX／APK 等",
+      "use": "把受支持的程序字节码转为可读 Java，搜索函数和引用。",
+      "limit": "部分代码可能反编译失败；C++／IL2CPP 要换相应工具。",
+      "source": "https://github.com/skylot/jadx",
+      "mode": "界面＋命令行",
+      "version": "v1.5.6",
+      "status": "命令行检查通过",
+      "command": [
+        "{root}/apps/jadx/bin/jadx.bat"
+      ],
+      "check_paths": [
+        "apps/jadx/bin/jadx.bat"
+      ],
+      "primary": true,
+      "folder": "apps/jadx/bin",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "--version"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-jadx.txt"
+      }
+    },
+    {
+      "id": "thtk",
+      "name": "Touhou Toolkit／thtk",
+      "platform": "支持列表内的东方作品",
+      "use": "thdat 读取数据包；thecl 处理关卡脚本；thanm 处理动画数据。",
+      "limit": "各作品支持不同；我们曾为汉化 TH08 的明文条目补充读取逻辑。",
+      "source": "https://github.com/thpatch/thtk",
+      "mode": "命令行工具组",
+      "version": "12",
+      "status": "命令行检查通过",
+      "command": [
+        "{root}/apps/thtk/thtk-bin-12/thdat.exe"
+      ],
+      "check_paths": [
+        "apps/thtk/thtk-bin-12/thdat.exe"
+      ],
+      "primary": true,
+      "folder": "apps/thtk/thtk-bin-12",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "-V"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-thtk.txt"
+      }
+    },
+    {
+      "id": "th08-web",
+      "name": "TH08 Web",
+      "platform": "东方永夜抄 TH08",
+      "use": "社区重建代码的浏览器移植，可加载原数据运行并查阅实现。",
+      "limit": "属于特定游戏项目；移植版运行成功不等于原版逐帧一致。",
+      "source": "https://github.com/N0zoM1z0/th08-web",
+      "mode": "源码＋浏览器运行",
+      "version": "e3485ab9a9af3b5a90ce51841667bbdf5a867e5c",
+      "status": "源码已缓存，未编译",
+      "command": [],
+      "check_paths": [
+        "research/th08-web/th08-web-e3485ab9a9af3b5a90ce51841667bbdf5a867e5c"
+      ],
+      "primary": true,
+      "folder": "research/th08-web/th08-web-e3485ab9a9af3b5a90ce51841667bbdf5a867e5c",
+      "note": "源码快照；未安装各项目的专用编译链，也不包含运行所需原始游戏文件。"
+    },
+    {
+      "id": "pokeemerald",
+      "name": "pret／pokeemerald",
+      "platform": "GBA 宝可梦绿宝石",
+      "use": "提供还原代码、构建说明和目标 ROM 校验值。",
+      "limit": "仅对应本项目支持的游戏版本。",
+      "source": "https://github.com/pret/pokeemerald",
+      "mode": "源码资料",
+      "version": "9103e529c2fbdd7add4a1ff3350c6c1f92112c42",
+      "status": "源码已缓存，未编译",
+      "command": [],
+      "check_paths": [
+        "research/pokeemerald/pokeemerald-9103e529c2fbdd7add4a1ff3350c6c1f92112c42"
+      ],
+      "primary": true,
+      "folder": "research/pokeemerald/pokeemerald-9103e529c2fbdd7add4a1ff3350c6c1f92112c42",
+      "note": "源码快照；未安装各项目的专用编译链，也不包含运行所需原始游戏文件。"
+    },
+    {
+      "id": "pokeheartgold",
+      "name": "pret／pokeheartgold",
+      "platform": "NDS 宝可梦心金／魂银",
+      "use": "提供拆解与还原中的代码及构建起点。",
+      "limit": "项目明确仍在进行中，并非全部代码已还原。",
+      "source": "https://github.com/pret/pokeheartgold",
+      "mode": "源码资料",
+      "version": "4e9563397ab4e5c407271472935f9e270ac6a804",
+      "status": "源码已缓存，未编译",
+      "command": [],
+      "check_paths": [
+        "research/pokeheartgold/pokeheartgold-4e9563397ab4e5c407271472935f9e270ac6a804"
+      ],
+      "primary": true,
+      "folder": "research/pokeheartgold/pokeheartgold-4e9563397ab4e5c407271472935f9e270ac6a804",
+      "note": "源码快照；未安装各项目的专用编译链，也不包含运行所需原始游戏文件。"
+    },
+    {
+      "id": "sm64",
+      "name": "n64decomp／sm64",
+      "platform": "N64 超级马力欧 64",
+      "use": "提供多个指定版本的还原代码与构建说明。",
+      "limit": "构建所需原始游戏数据需另外准备。",
+      "source": "https://github.com/n64decomp/sm64",
+      "mode": "源码资料",
+      "version": "9921382a68bb0c865e5e45eb594d9c64db59b1af",
+      "status": "源码已缓存，未编译",
+      "command": [],
+      "check_paths": [
+        "research/sm64/sm64-9921382a68bb0c865e5e45eb594d9c64db59b1af"
+      ],
+      "primary": true,
+      "folder": "research/sm64/sm64-9921382a68bb0c865e5e45eb594d9c64db59b1af",
+      "note": "源码快照；未安装各项目的专用编译链，也不包含运行所需原始游戏文件。"
+    },
+    {
+      "id": "objdiff",
+      "name": "objdiff",
+      "platform": "多平台还原项目",
+      "use": "比较目标文件中的函数与数据，辅助修正还原差异。",
+      "limit": "需要配套构建与目标文件，不是整款游戏行为验证器。",
+      "source": "https://github.com/encounter/objdiff",
+      "mode": "源码资料",
+      "version": "v3.8.3",
+      "status": "启动检查通过，未载入游戏",
+      "command": [
+        "{root}/apps/objdiff/objdiff-windows-x86_64.exe"
+      ],
+      "check_paths": [
+        "apps/objdiff/objdiff-windows-x86_64.exe"
+      ],
+      "primary": true,
+      "folder": "apps/objdiff",
+      "verification": {
+        "summary": "启动检查通过，未载入游戏",
+        "passed": true,
+        "test": "process-startup",
+        "arguments": [],
+        "exit_code": 1,
+        "stopped_after_timeout": true,
+        "log": "logs/help-objdiff.txt"
+      }
+    },
+    {
+      "id": "ilspycmd",
+      "name": "ILSpy 命令行",
+      "platform": "Unity Mono／其他 .NET 程序",
+      "parent": "ilspy",
+      "primary": false,
+      "command": [
+        "{root}/apps/ilspycmd/.store/ilspycmd/11.2.0.10050/ilspycmd.win-x64/11.2.0.10050/tools/any/win-x64/ilspycmd.exe"
+      ],
+      "check_paths": [
+        "apps/ilspycmd/.store/ilspycmd/11.2.0.10050/ilspycmd.win-x64/11.2.0.10050/tools/any/win-x64/ilspycmd.exe"
+      ],
+      "folder": "apps/ilspycmd/.store/ilspycmd/11.2.0.10050/ilspycmd.win-x64/11.2.0.10050/tools/any/win-x64",
+      "version": "v11.2",
+      "mode": "命令行",
+      "status": "本地 DLL 反编译通过",
+      "verification": {
+        "summary": "本地 DLL 反编译通过",
+        "passed": true,
+        "test": "decompile-local-built-dll",
+        "exit_code": 0
+      }
+    },
+    {
+      "id": "cpp2il-preview",
+      "name": "Cpp2IL 开发预览版",
+      "platform": "Unity IL2CPP",
+      "parent": "cpp2il",
+      "primary": false,
+      "command": [
+        "{root}/apps/cpp2il-preview/Cpp2IL-2022.1.0-pre-release.21-Windows.exe"
+      ],
+      "check_paths": [
+        "apps/cpp2il-preview/Cpp2IL-2022.1.0-pre-release.21-Windows.exe"
+      ],
+      "folder": "apps/cpp2il-preview",
+      "version": "2022.0.7",
+      "mode": "命令行",
+      "status": "命令行检查通过",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "--help"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-cpp2il-preview.txt"
+      }
+    },
+    {
+      "id": "objdiff-cli",
+      "name": "objdiff 命令行",
+      "platform": "多平台还原项目",
+      "parent": "objdiff",
+      "primary": false,
+      "command": [
+        "{root}/apps/objdiff/objdiff-cli-windows-x86_64.exe"
+      ],
+      "check_paths": [
+        "apps/objdiff/objdiff-cli-windows-x86_64.exe"
+      ],
+      "folder": "apps/objdiff",
+      "version": "v3.8.3",
+      "mode": "命令行",
+      "status": "命令行检查通过",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "--version"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-objdiff-cli.txt"
+      }
+    },
+    {
+      "id": "ghidra-headless",
+      "name": "Ghidra 无界面分析",
+      "platform": "PC 及多种处理器程序",
+      "parent": "ghidra",
+      "primary": false,
+      "command": [
+        "{root}/apps/ghidra/ghidra_12.2_PUBLIC/support/analyzeHeadless.bat"
+      ],
+      "check_paths": [
+        "apps/ghidra/ghidra_12.2_PUBLIC/support/analyzeHeadless.bat"
+      ],
+      "folder": "apps/ghidra/ghidra_12.2_PUBLIC/support",
+      "version": "Ghidra_12.2_build",
+      "mode": "命令行",
+      "status": "合成二进制导入通过",
+      "verification": {
+        "summary": "合成二进制导入通过",
+        "passed": true,
+        "test": "synthetic-x86-binary-import-without-analysis",
+        "arguments": [
+          "F:\\GameAnalysisToolkit\\work\\smoke-samples\\ghidra-projects",
+          "LocalSmoke",
+          "-import",
+          "F:\\GameAnalysisToolkit\\work\\smoke-samples\\return7.bin",
+          "-loader",
+          "BinaryLoader",
+          "-processor",
+          "x86:LE:32:default",
+          "-noanalysis",
+          "-overwrite"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-ghidra-headless.txt"
+      }
+    },
+    {
+      "id": "jadx-gui",
+      "name": "JADX 图形界面",
+      "platform": "Android DEX／APK 等",
+      "parent": "jadx",
+      "primary": false,
+      "command": [
+        "{root}/apps/jadx/bin/jadx-gui.bat"
+      ],
+      "check_paths": [
+        "apps/jadx/bin/jadx-gui.bat"
+      ],
+      "folder": "apps/jadx/bin",
+      "version": "v1.5.6",
+      "mode": "图形界面",
+      "status": "入口已配置"
+    },
+    {
+      "id": "thdat",
+      "name": "thdat",
+      "platform": "支持列表内的东方作品",
+      "parent": "thtk",
+      "primary": false,
+      "command": [
+        "{root}/apps/thtk/thtk-bin-12/thdat.exe"
+      ],
+      "check_paths": [
+        "apps/thtk/thtk-bin-12/thdat.exe"
+      ],
+      "folder": "apps/thtk/thtk-bin-12",
+      "version": "12",
+      "mode": "命令行",
+      "status": "命令行检查通过",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "-V"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-thdat.txt"
+      }
+    },
+    {
+      "id": "thecl",
+      "name": "thecl",
+      "platform": "支持列表内的东方作品",
+      "parent": "thtk",
+      "primary": false,
+      "command": [
+        "{root}/apps/thtk/thtk-bin-12/thecl.exe"
+      ],
+      "check_paths": [
+        "apps/thtk/thtk-bin-12/thecl.exe"
+      ],
+      "folder": "apps/thtk/thtk-bin-12",
+      "version": "12",
+      "mode": "命令行",
+      "status": "命令行检查通过",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "-V"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-thecl.txt"
+      }
+    },
+    {
+      "id": "thanm",
+      "name": "thanm",
+      "platform": "支持列表内的东方作品",
+      "parent": "thtk",
+      "primary": false,
+      "command": [
+        "{root}/apps/thtk/thtk-bin-12/thanm.exe"
+      ],
+      "check_paths": [
+        "apps/thtk/thtk-bin-12/thanm.exe"
+      ],
+      "folder": "apps/thtk/thtk-bin-12",
+      "version": "12",
+      "mode": "命令行",
+      "status": "命令行检查通过",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "-V"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-thanm.txt"
+      }
+    },
+    {
+      "id": "thmsg",
+      "name": "thmsg",
+      "platform": "支持列表内的东方作品",
+      "parent": "thtk",
+      "primary": false,
+      "command": [
+        "{root}/apps/thtk/thtk-bin-12/thmsg.exe"
+      ],
+      "check_paths": [
+        "apps/thtk/thtk-bin-12/thmsg.exe"
+      ],
+      "folder": "apps/thtk/thtk-bin-12",
+      "version": "12",
+      "mode": "命令行",
+      "status": "命令行检查通过",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "-V"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-thmsg.txt"
+      }
+    },
+    {
+      "id": "thstd",
+      "name": "thstd",
+      "platform": "支持列表内的东方作品",
+      "parent": "thtk",
+      "primary": false,
+      "command": [
+        "{root}/apps/thtk/thtk-bin-12/thstd.exe"
+      ],
+      "check_paths": [
+        "apps/thtk/thtk-bin-12/thstd.exe"
+      ],
+      "folder": "apps/thtk/thtk-bin-12",
+      "version": "12",
+      "mode": "命令行",
+      "status": "命令行检查通过",
+      "verification": {
+        "summary": "命令行检查通过",
+        "passed": true,
+        "test": "cli-help-or-version",
+        "arguments": [
+          "-V"
+        ],
+        "exit_code": 0,
+        "stopped_after_timeout": false,
+        "log": "logs/help-thstd.txt"
+      }
+    },
+    {
+      "id": "python",
+      "name": "工具库 Python",
+      "platform": "Python 开发",
+      "primary": false,
+      "command": [
+        "{root}/runtime/python/python.exe"
+      ],
+      "check_paths": [
+        "runtime/python/python.exe"
+      ],
+      "status": "运行环境已配置",
+      "version": "3.12.14"
+    },
+    {
+      "id": "dotnet",
+      "name": "工具库 .NET SDK",
+      "platform": "C# 开发",
+      "primary": false,
+      "command": [
+        "{root}/runtime/dotnet/dotnet.exe"
+      ],
+      "check_paths": [
+        "runtime/dotnet/dotnet.exe"
+      ],
+      "status": "运行环境已配置",
+      "version": "10.0.404"
+    }
+  ],
+  "downloads": [
+    {
+      "id": "dotnet",
+      "version": "10.0.404",
+      "source": "https://dotnet.microsoft.com/download/dotnet/10.0",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.404/dotnet-sdk-10.0.404-win-x64.zip",
+      "name": "dotnet-sdk-10.0.404-win-x64.zip",
+      "sha512": "330ddd2665b43cd2e428216a0d8ea1ac7bb19b5434fdc530e62010dc3b52823a620bf95489d628e1ed6f5122401793ee4887cca4a019122361a1231497f632ee",
+      "dest": "runtime/dotnet",
+      "archive": true,
+      "actual_sha256": "f94f02eb8451605a893164bbd9c14e7f00ac8914c370c322822e6ac91b106bcc",
+      "download_bytes": 303618098,
+      "installed_bytes": 812144112,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "desmume",
+      "repo": "TASEmulators/desmume",
+      "version": "release_0_9_13",
+      "source": "https://github.com/TASEmulators/desmume/releases/tag/release_0_9_13",
+      "url": "https://github.com/TASEmulators/desmume/releases/download/release_0_9_13/desmume-0.9.13-win64.zip",
+      "name": "desmume-0.9.13-win64.zip",
+      "size": 6086795,
+      "sha256": null,
+      "dest": "apps/desmume",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/TASEmulators/desmume/releases/assets/66404413",
+      "actual_sha256": "cbf710b8e6b29f0904e289a9b9a895548a2d7c7af5a3145c8279b97a69a09276",
+      "download_bytes": 6086795,
+      "installed_bytes": 40444659,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "mesen",
+      "repo": "nesdev-org/MesenCE",
+      "version": "2.2.1",
+      "source": "https://github.com/nesdev-org/MesenCE/releases/tag/2.2.1",
+      "url": "https://github.com/nesdev-org/MesenCE/releases/download/2.2.1/Mesen_2.2.1_Windows.zip",
+      "name": "Mesen_2.2.1_Windows.zip",
+      "size": 34259023,
+      "sha256": "c19e10b3b3865eb0e86e4d01bf09a5027a4452081c04b5bd5b6cbbf76e346fd6",
+      "dest": "apps/mesen",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/nesdev-org/MesenCE/releases/assets/439185508",
+      "actual_sha256": "c19e10b3b3865eb0e86e4d01bf09a5027a4452081c04b5bd5b6cbbf76e346fd6",
+      "download_bytes": 34259023,
+      "installed_bytes": 70753792,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "mgba",
+      "repo": "mgba-emu/mgba",
+      "version": "0.10.5",
+      "source": "https://github.com/mgba-emu/mgba/releases/tag/0.10.5",
+      "url": "https://github.com/mgba-emu/mgba/releases/download/0.10.5/mGBA-0.10.5-win64.7z",
+      "name": "mGBA-0.10.5-win64.7z",
+      "size": 14156919,
+      "sha256": null,
+      "dest": "apps/mgba",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/mgba-emu/mgba/releases/assets/235853583",
+      "actual_sha256": "b497a57c7d9093834dadc64f33a90f7c411439c21fdb8a0143255a45ea37563a",
+      "download_bytes": 14156919,
+      "installed_bytes": 50791622,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "cpp2il",
+      "repo": "SamboyCoding/Cpp2IL",
+      "version": "2022.0.7",
+      "source": "https://github.com/SamboyCoding/Cpp2IL/releases/tag/2022.0.7",
+      "url": "https://github.com/SamboyCoding/Cpp2IL/releases/download/2022.0.7/Cpp2IL-2022.0.7-Windows.exe",
+      "name": "Cpp2IL-2022.0.7-Windows.exe",
+      "size": 22919469,
+      "sha256": null,
+      "dest": "apps/cpp2il",
+      "archive": false,
+      "api_url": "https://api.github.com/repos/SamboyCoding/Cpp2IL/releases/assets/79092779",
+      "actual_sha256": "f2731831776bf3367d87217860db1c56f4da1ec458db36cf7cea241002deb625",
+      "download_bytes": 22919469,
+      "installed_bytes": 22919469,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "assetripper",
+      "repo": "AssetRipper/AssetRipper",
+      "version": "2.0.0",
+      "source": "https://github.com/AssetRipper/AssetRipper/releases/tag/2.0.0",
+      "url": "https://github.com/AssetRipper/AssetRipper/releases/download/2.0.0/AssetRipper_win_x64.zip",
+      "name": "AssetRipper_win_x64.zip",
+      "size": 44439367,
+      "sha256": "9a7ef0e7c5c3ea5b90b4e6d855e2d98d5f7ec8c3f9e26fccbc194c6a7b01baf7",
+      "dest": "apps/assetripper",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/AssetRipper/AssetRipper/releases/assets/528077590",
+      "actual_sha256": "9a7ef0e7c5c3ea5b90b4e6d855e2d98d5f7ec8c3f9e26fccbc194c6a7b01baf7",
+      "download_bytes": 44439367,
+      "installed_bytes": 135717405,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "pcsx2",
+      "repo": "PCSX2/pcsx2",
+      "version": "v2.8.2",
+      "source": "https://github.com/PCSX2/pcsx2/releases/tag/v2.8.2",
+      "url": "https://github.com/PCSX2/pcsx2/releases/download/v2.8.2/pcsx2-v2.8.2-windows-x64-Qt.7z",
+      "name": "pcsx2-v2.8.2-windows-x64-Qt.7z",
+      "size": 25670075,
+      "sha256": "7dfc829ca1994cc1045ac49f05e39b6cf968b72e6a374c40e05c2a2b4ac200b4",
+      "dest": "apps/pcsx2",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/PCSX2/pcsx2/releases/assets/544610696",
+      "actual_sha256": "7dfc829ca1994cc1045ac49f05e39b6cf968b72e6a374c40e05c2a2b4ac200b4",
+      "download_bytes": 25670075,
+      "installed_bytes": 119033963,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "ilspy",
+      "repo": "icsharpcode/ILSpy",
+      "version": "v11.2",
+      "source": "https://github.com/icsharpcode/ILSpy/releases/tag/v11.2",
+      "url": "https://github.com/icsharpcode/ILSpy/releases/download/v11.2/ILSpy_windows_selfcontained_11.2.0.10050-x64.zip",
+      "name": "ILSpy_windows_selfcontained_11.2.0.10050-x64.zip",
+      "size": 55088438,
+      "sha256": "c30cda0e5a22435df5013eeffa515594abf144e2d06c9bb5ddcc9fccdefd69c8",
+      "dest": "apps/ilspy",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/icsharpcode/ILSpy/releases/assets/680690899",
+      "actual_sha256": "c30cda0e5a22435df5013eeffa515594abf144e2d06c9bb5ddcc9fccdefd69c8",
+      "download_bytes": 55088438,
+      "installed_bytes": 138322052,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "bizhawk",
+      "repo": "TASEmulators/BizHawk",
+      "version": "2.11.1",
+      "source": "https://github.com/TASEmulators/BizHawk/releases/tag/2.11.1",
+      "url": "https://github.com/TASEmulators/BizHawk/releases/download/2.11.1/BizHawk-2.11.1-win-x64.zip",
+      "name": "BizHawk-2.11.1-win-x64.zip",
+      "size": 97984101,
+      "sha256": "dd7cbd5e205b09c5bce6afabc4f8aa525acc0bbeb9753b198a8db3fe6a5e5717",
+      "dest": "apps/bizhawk",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/TASEmulators/BizHawk/releases/assets/409889574",
+      "actual_sha256": "dd7cbd5e205b09c5bce6afabc4f8aa525acc0bbeb9753b198a8db3fe6a5e5717",
+      "download_bytes": 97984101,
+      "installed_bytes": 155453164,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "fmodel",
+      "repo": "4sval/FModel",
+      "version": "nov-2026",
+      "source": "https://github.com/4sval/FModel/releases/tag/nov-2026",
+      "url": "https://github.com/4sval/FModel/releases/download/nov-2026/FModel.zip",
+      "name": "FModel.zip",
+      "size": 21019605,
+      "sha256": "209bef15402dd58010cdb6bad03a799471f2100d671f8d5a52c1e613549b7de1",
+      "dest": "apps/fmodel",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/4sval/FModel/releases/assets/695907001",
+      "actual_sha256": "209bef15402dd58010cdb6bad03a799471f2100d671f8d5a52c1e613549b7de1",
+      "download_bytes": 21019605,
+      "installed_bytes": 53675493,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "gdre",
+      "repo": "GDRETools/gdsdecomp",
+      "version": "v2.7.4",
+      "source": "https://github.com/GDRETools/gdsdecomp/releases/tag/v2.7.4",
+      "url": "https://github.com/GDRETools/gdsdecomp/releases/download/v2.7.4/GDRE_tools-v2.7.4-windows.zip",
+      "name": "GDRE_tools-v2.7.4-windows.zip",
+      "size": 42626001,
+      "sha256": "af24c563eee501effb194d83595de64696c32547b2246034dbfb891a24bfa0ad",
+      "dest": "apps/gdre",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/GDRETools/gdsdecomp/releases/assets/629848526",
+      "actual_sha256": "af24c563eee501effb194d83595de64696c32547b2246034dbfb891a24bfa0ad",
+      "download_bytes": 42626001,
+      "installed_bytes": 123504156,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "thtk",
+      "repo": "thpatch/thtk",
+      "version": "12",
+      "source": "https://github.com/thpatch/thtk/releases/tag/12",
+      "url": "https://github.com/thpatch/thtk/releases/download/12/thtk-bin-12.zip",
+      "name": "thtk-bin-12.zip",
+      "size": 656814,
+      "sha256": null,
+      "dest": "apps/thtk",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/thpatch/thtk/releases/assets/15769503",
+      "actual_sha256": "f6acc00f377b6537e8d504794aec8445cb1e0d6490d2c89d56b3315677765154",
+      "download_bytes": 656814,
+      "installed_bytes": 1205626,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "x64dbg",
+      "repo": "x64dbg/x64dbg",
+      "version": "2026.05.27",
+      "source": "https://github.com/x64dbg/x64dbg/releases/tag/2026.05.27",
+      "url": "https://github.com/x64dbg/x64dbg/releases/download/2026.05.27/snapshot_2026-05-27_12-11.zip",
+      "name": "snapshot_2026-05-27_12-11.zip",
+      "size": 31526833,
+      "sha256": "d41966dfc5b435a372798245300ca0ab7bb8e48bdbf48512c6fb20fcca427697",
+      "dest": "apps/x64dbg",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/x64dbg/x64dbg/releases/assets/431103703",
+      "actual_sha256": "d41966dfc5b435a372798245300ca0ab7bb8e48bdbf48512c6fb20fcca427697",
+      "download_bytes": 31526833,
+      "installed_bytes": 84871803,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "objdiff",
+      "repo": "encounter/objdiff",
+      "version": "v3.8.3",
+      "source": "https://github.com/encounter/objdiff/releases/tag/v3.8.3",
+      "url": "https://github.com/encounter/objdiff/releases/download/v3.8.3/objdiff-cli-windows-x86_64.exe",
+      "name": "objdiff-cli-windows-x86_64.exe",
+      "size": 7164416,
+      "sha256": "dd12dfb5e9e94a7f6c949a37e1815963cf2cffe4c87b4999b7ebc8c15b398a1f",
+      "dest": "apps/objdiff",
+      "archive": false,
+      "api_url": "https://api.github.com/repos/encounter/objdiff/releases/assets/657354510",
+      "actual_sha256": "dd12dfb5e9e94a7f6c949a37e1815963cf2cffe4c87b4999b7ebc8c15b398a1f",
+      "download_bytes": 7164416,
+      "installed_bytes": 7164416,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "dolphin",
+      "version": "2609b",
+      "source": "https://dolphin-emu.org/download/",
+      "url": "https://dl.dolphin-emu.org/releases/2609b/dolphin-2609b-x64.7z",
+      "name": "dolphin-2609b-x64.7z",
+      "dest": "apps/dolphin",
+      "archive": true,
+      "actual_sha256": "926eb7594d885b4fba8fd9807058d90618efab4b3d75d1ef297022ba14925133",
+      "download_bytes": 20028240,
+      "installed_bytes": 74536737,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "ppsspp",
+      "repo": "hrydgard/ppsspp",
+      "version": "v1.20.4",
+      "source": "https://github.com/hrydgard/ppsspp/releases/tag/v1.20.4",
+      "url": "https://github.com/hrydgard/ppsspp/releases/download/v1.20.4/PPSSPP-v1.20.4-Windows-x64.zip",
+      "name": "PPSSPP-v1.20.4-Windows-x64.zip",
+      "size": 20390334,
+      "sha256": "fbc9cd2f5131b159a92424e5c458c35ce43ba603cdded64dfc98e4bd4f17ff93",
+      "dest": "apps/ppsspp",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/hrydgard/ppsspp/releases/assets/421816268",
+      "actual_sha256": "fbc9cd2f5131b159a92424e5c458c35ce43ba603cdded64dfc98e4bd4f17ff93",
+      "download_bytes": 20390334,
+      "installed_bytes": 42308576,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "apktool",
+      "repo": "iBotPeaches/Apktool",
+      "version": "v3.0.3",
+      "source": "https://github.com/iBotPeaches/Apktool/releases/tag/v3.0.3",
+      "url": "https://github.com/iBotPeaches/Apktool/releases/download/v3.0.3/apktool_3.0.3.jar",
+      "name": "apktool_3.0.3.jar",
+      "size": 15478013,
+      "sha256": "dbf930b076c6b9be08d57c449cacefc3bdd6b71ebd59b3066fc0e1f5b14f9423",
+      "dest": "apps/apktool",
+      "archive": false,
+      "api_url": "https://api.github.com/repos/iBotPeaches/Apktool/releases/assets/483349654",
+      "actual_sha256": "dbf930b076c6b9be08d57c449cacefc3bdd6b71ebd59b3066fc0e1f5b14f9423",
+      "download_bytes": 15478013,
+      "installed_bytes": 15478013,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "cue4parse",
+      "repo": "FabianFG/CUE4Parse",
+      "version": "4d2301a8eb129f593f1c76ff82612400801f1a94",
+      "source": "https://github.com/FabianFG/CUE4Parse",
+      "url": "https://codeload.github.com/FabianFG/CUE4Parse/zip/4d2301a8eb129f593f1c76ff82612400801f1a94",
+      "name": "cue4parse-4d2301a8.zip",
+      "dest": "research/cue4parse",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/FabianFG/CUE4Parse/zipball/4d2301a8eb129f593f1c76ff82612400801f1a94",
+      "actual_sha256": "7a39850e05ddf75ef866bddcdbf4c4c29d856155ad52d7b1d5ec95ea2463c1f3",
+      "download_bytes": 30980191,
+      "installed_bytes": 51888148,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "pokeemerald",
+      "repo": "pret/pokeemerald",
+      "version": "9103e529c2fbdd7add4a1ff3350c6c1f92112c42",
+      "source": "https://github.com/pret/pokeemerald",
+      "url": "https://codeload.github.com/pret/pokeemerald/zip/9103e529c2fbdd7add4a1ff3350c6c1f92112c42",
+      "name": "pokeemerald-9103e529.zip",
+      "dest": "research/pokeemerald",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/pret/pokeemerald/zipball/9103e529c2fbdd7add4a1ff3350c6c1f92112c42",
+      "actual_sha256": "4fc7932d384580bb179859728597aa6d6252d3fbebff9720894d5f55d39f8e1b",
+      "download_bytes": 15617775,
+      "installed_bytes": 43094843,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "sm64",
+      "repo": "n64decomp/sm64",
+      "version": "9921382a68bb0c865e5e45eb594d9c64db59b1af",
+      "source": "https://github.com/n64decomp/sm64",
+      "url": "https://codeload.github.com/n64decomp/sm64/zip/9921382a68bb0c865e5e45eb594d9c64db59b1af",
+      "name": "sm64-9921382a.zip",
+      "dest": "research/sm64",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/n64decomp/sm64/zipball/9921382a68bb0c865e5e45eb594d9c64db59b1af",
+      "actual_sha256": "287203a18ff9dc57bf892155c76915ff94b70018fdde12ea443beda36495646e",
+      "download_bytes": 17272398,
+      "installed_bytes": 59925795,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "java",
+      "repo": "adoptium/temurin25-binaries",
+      "version": "jdk-25.0.5+8",
+      "source": "https://github.com/adoptium/temurin25-binaries/releases/tag/jdk-25.0.5%2B8",
+      "url": "https://github.com/adoptium/temurin25-binaries/releases/download/jdk-25.0.5%2B8/OpenJDK25U-jdk_x64_windows_hotspot_25.0.5_8.zip",
+      "name": "OpenJDK25U-jdk_x64_windows_hotspot_25.0.5_8.zip",
+      "size": 141285173,
+      "sha256": "636bdc13dc649ddc7d5921c5c7d23cca6e44fd19d662b45cc9c02135a6c96c42",
+      "dest": "runtime/java",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/adoptium/temurin25-binaries/releases/assets/677970511",
+      "actual_sha256": "636bdc13dc649ddc7d5921c5c7d23cca6e44fd19d662b45cc9c02135a6c96c42",
+      "download_bytes": 141285173,
+      "installed_bytes": 304138987,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "ndspy-source",
+      "repo": "RoadrunnerWMC/ndspy",
+      "version": "00165f177d03c6ca9e15e37decf54d9c6754bf54",
+      "source": "https://github.com/RoadrunnerWMC/ndspy",
+      "url": "https://codeload.github.com/RoadrunnerWMC/ndspy/zip/00165f177d03c6ca9e15e37decf54d9c6754bf54",
+      "name": "ndspy-source-00165f17.zip",
+      "dest": "research/ndspy-source",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/RoadrunnerWMC/ndspy/zipball/00165f177d03c6ca9e15e37decf54d9c6754bf54",
+      "actual_sha256": "e48d3086177eda4103650d2a8b72fbbf3a6b4e3fb98836a50cebb9e287e08c81",
+      "download_bytes": 408596,
+      "installed_bytes": 967282,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "splat-source",
+      "repo": "ethteck/splat",
+      "version": "7548b9771e6f8418507b23434187fb07741af6d4",
+      "source": "https://github.com/ethteck/splat",
+      "url": "https://codeload.github.com/ethteck/splat/zip/7548b9771e6f8418507b23434187fb07741af6d4",
+      "name": "splat-source-7548b977.zip",
+      "dest": "research/splat-source",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/ethteck/splat/zipball/7548b9771e6f8418507b23434187fb07741af6d4",
+      "actual_sha256": "a50b3b517f325b941964fe5625beb60a3eb097d0b5bbbf2666cd74019b645a35",
+      "download_bytes": 246575,
+      "installed_bytes": 733392,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "jadx",
+      "repo": "skylot/jadx",
+      "version": "v1.5.6",
+      "source": "https://github.com/skylot/jadx/releases/tag/v1.5.6",
+      "url": "https://github.com/skylot/jadx/releases/download/v1.5.6/jadx-1.5.6.zip",
+      "name": "jadx-1.5.6.zip",
+      "size": 72646741,
+      "sha256": "545ea2be9c242511bc145755cf4bda2485ade42966e096f8b4d3da2a230e8974",
+      "dest": "apps/jadx",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/skylot/jadx/releases/assets/472797042",
+      "actual_sha256": "545ea2be9c242511bc145755cf4bda2485ade42966e096f8b4d3da2a230e8974",
+      "download_bytes": 72646741,
+      "installed_bytes": 78273694,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "objdiff",
+      "repo": "encounter/objdiff",
+      "version": "v3.8.3",
+      "source": "https://github.com/encounter/objdiff/releases/tag/v3.8.3",
+      "url": "https://github.com/encounter/objdiff/releases/download/v3.8.3/objdiff-windows-x86_64.exe",
+      "name": "objdiff-windows-x86_64.exe",
+      "size": 24297984,
+      "sha256": "2c1e8115685024b256caa5d6c2179a30a8850a5a9d99ee11843b5869b516874c",
+      "dest": "apps/objdiff",
+      "archive": false,
+      "api_url": "https://api.github.com/repos/encounter/objdiff/releases/assets/657354498",
+      "actual_sha256": "2c1e8115685024b256caa5d6c2179a30a8850a5a9d99ee11843b5869b516874c",
+      "download_bytes": 24297984,
+      "installed_bytes": 31462400,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "th08-web",
+      "repo": "N0zoM1z0/th08-web",
+      "version": "e3485ab9a9af3b5a90ce51841667bbdf5a867e5c",
+      "source": "https://github.com/N0zoM1z0/th08-web",
+      "url": "https://codeload.github.com/N0zoM1z0/th08-web/zip/e3485ab9a9af3b5a90ce51841667bbdf5a867e5c",
+      "name": "th08-web-e3485ab9.zip",
+      "dest": "research/th08-web",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/N0zoM1z0/th08-web/zipball/e3485ab9a9af3b5a90ce51841667bbdf5a867e5c",
+      "actual_sha256": "5c0dd87eeebf83cc602623dacc1f42401c895f3562562fff7157be9f8ef01994",
+      "download_bytes": 9284353,
+      "installed_bytes": 15416576,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "pokeheartgold",
+      "repo": "pret/pokeheartgold",
+      "version": "4e9563397ab4e5c407271472935f9e270ac6a804",
+      "source": "https://github.com/pret/pokeheartgold",
+      "url": "https://codeload.github.com/pret/pokeheartgold/zip/4e9563397ab4e5c407271472935f9e270ac6a804",
+      "name": "pokeheartgold-4e956339.zip",
+      "dest": "research/pokeheartgold",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/pret/pokeheartgold/zipball/4e9563397ab4e5c407271472935f9e270ac6a804",
+      "actual_sha256": "454f516cb74f7fb7584a77900ef1491d743352b7ce8d59692443484d75e51d17",
+      "download_bytes": 62017783,
+      "installed_bytes": 159268616,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "quickbms",
+      "version": "0.12",
+      "source": "https://aluigi.altervista.org/quickbms.htm",
+      "url": "https://aluigi.altervista.org/papers/quickbms.zip",
+      "name": "quickbms.zip",
+      "dest": "apps/quickbms",
+      "archive": true,
+      "actual_sha256": "b9d4f9efb55692994cd42a491cfea11f86e3375a618b9bd771583ce40ddb3828",
+      "download_bytes": 15979735,
+      "installed_bytes": 40763660,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "cpp2il-preview",
+      "repo": "SamboyCoding/Cpp2IL",
+      "version": "2022.1.0-pre-release.21",
+      "source": "https://github.com/SamboyCoding/Cpp2IL/releases/tag/2022.1.0-pre-release.21",
+      "url": "https://github.com/SamboyCoding/Cpp2IL/releases/download/2022.1.0-pre-release.21/Cpp2IL-2022.1.0-pre-release.21-Windows.exe",
+      "name": "Cpp2IL-2022.1.0-pre-release.21-Windows.exe",
+      "sha256": "663fb432433b4371fd1ee0ebc321a8fff2a9aac5ac4230c843f9e03ddee4e04c",
+      "dest": "apps/cpp2il-preview",
+      "archive": false,
+      "api_url": "https://api.github.com/repos/SamboyCoding/Cpp2IL/releases/assets/360212190",
+      "actual_sha256": "663fb432433b4371fd1ee0ebc321a8fff2a9aac5ac4230c843f9e03ddee4e04c",
+      "download_bytes": 15137811,
+      "installed_bytes": 15137811,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "pcsx-redux",
+      "version": "31729.20261116.32.x64",
+      "source": "https://distrib.app/pub/org/pcsx-redux/project/dev-win-x64",
+      "url": "https://distrib.app/storage/assets/54a/214/933/9e6a7b9b8d253f020bdd0f9ee6f443c6db0c875304277d3503f0886/pcsx-redux-nightly-31729.20261116.32-x64.zip",
+      "name": "pcsx-redux-nightly-31729.20261116.32-x64.zip",
+      "dest": "apps/pcsx-redux",
+      "archive": true,
+      "actual_sha256": "96170bd5e58f5fe0dbc31087094cbd536795618d243574e7f5decbf0abd44131",
+      "download_bytes": 50945985,
+      "installed_bytes": 106851421,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "quickbms-scripts",
+      "version": "2026-11-17 snapshot",
+      "source": "https://mirror.aluigi.org/quickbms.htm",
+      "url": "https://mirror.aluigi.org/quickbms_scripts.php",
+      "name": "quickbms-scripts-mirror.zip",
+      "dest": "apps/quickbms/scripts",
+      "archive": true,
+      "actual_sha256": "03d4933122bc3182b86eff26be06f8f6e442e0c5b67df4d69bbb37a0e60d4c59",
+      "download_bytes": 2458255,
+      "installed_bytes": 4634682,
+      "status": "downloaded-unverified"
+    },
+    {
+      "id": "ghidra",
+      "repo": "NationalSecurityAgency/ghidra",
+      "version": "Ghidra_12.2_build",
+      "source": "https://github.com/NationalSecurityAgency/ghidra/releases/tag/Ghidra_12.2_build",
+      "url": "https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_12.2_build/ghidra_12.2_PUBLIC_20261016.zip",
+      "name": "ghidra_12.2_PUBLIC_20261016.zip",
+      "size": 569712708,
+      "sha256": "2c2cd776db3c1f6a097ba418922378ac3649cadd5e844a6f5f088ae628a7be67",
+      "dest": "apps/ghidra",
+      "archive": true,
+      "api_url": "https://api.github.com/repos/NationalSecurityAgency/ghidra/releases/assets/665189215",
+      "actual_sha256": "2c2cd776db3c1f6a097ba418922378ac3649cadd5e844a6f5f088ae628a7be67",
+      "download_bytes": 569712708,
+      "status": "downloaded-unverified",
+      "installed_bytes": 908573269,
+      "archive_check": {
+        "files": 5324,
+        "repaired": []
+      }
+    }
+  ]
+}

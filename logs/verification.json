@@ -1,0 +1,354 @@
+{
+  "python": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "--version"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-python.txt"
+  },
+  "dotnet": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "--version"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-dotnet.txt"
+  },
+  "ndspy": {
+    "summary": "合成 NDS 文件解析通过",
+    "passed": true,
+    "test": "synthetic-rom-file-inventory",
+    "input": "work/smoke-samples/test.nds"
+  },
+  "splat": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "--version"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-splat.txt"
+  },
+  "ilspycmd": {
+    "summary": "本地 DLL 反编译通过",
+    "passed": true,
+    "test": "decompile-local-built-dll",
+    "exit_code": 0
+  },
+  "cpp2il": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "--help"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-cpp2il.txt"
+  },
+  "gdre": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "--headless",
+      "--help"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-gdre.txt"
+  },
+  "apktool": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "--version"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-apktool.txt"
+  },
+  "jadx": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "--version"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-jadx.txt"
+  },
+  "ghidra-headless": {
+    "summary": "合成二进制导入通过",
+    "passed": true,
+    "test": "synthetic-x86-binary-import-without-analysis",
+    "arguments": [
+      "F:\\GameAnalysisToolkit\\work\\smoke-samples\\ghidra-projects",
+      "LocalSmoke",
+      "-import",
+      "F:\\GameAnalysisToolkit\\work\\smoke-samples\\return7.bin",
+      "-loader",
+      "BinaryLoader",
+      "-processor",
+      "x86:LE:32:default",
+      "-noanalysis",
+      "-overwrite"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-ghidra-headless.txt"
+  },
+  "dolphin": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "--version"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-dolphin.txt"
+  },
+  "pcsx2": {
+    "summary": "启动检查通过，未载入游戏",
+    "passed": true,
+    "test": "process-startup",
+    "arguments": [],
+    "exit_code": 1,
+    "stopped_after_timeout": true,
+    "log": "logs/help-pcsx2.txt"
+  },
+  "thdat": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "-V"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-thdat.txt"
+  },
+  "thecl": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "-V"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-thecl.txt"
+  },
+  "thanm": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "-V"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-thanm.txt"
+  },
+  "thmsg": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "-V"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-thmsg.txt"
+  },
+  "thstd": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "-V"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-thstd.txt"
+  },
+  "thtk": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "-V"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-thtk.txt"
+  },
+  "assetripper": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "--help"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-assetripper.txt"
+  },
+  "quickbms": {
+    "summary": "合成资源包解包通过",
+    "passed": true,
+    "test": "synthetic-archive-extraction",
+    "exit_code": 0
+  },
+  "objdiff-cli": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "--version"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-objdiff-cli.txt"
+  },
+  "mesen": {
+    "summary": "启动检查通过，未载入游戏",
+    "passed": true,
+    "test": "process-startup",
+    "arguments": [],
+    "exit_code": 1,
+    "stopped_after_timeout": true,
+    "log": "logs/help-mesen.txt"
+  },
+  "mgba": {
+    "summary": "启动检查通过，未载入游戏",
+    "passed": true,
+    "test": "process-startup",
+    "arguments": [],
+    "exit_code": 1,
+    "stopped_after_timeout": true,
+    "log": "logs/help-mgba.txt"
+  },
+  "desmume": {
+    "summary": "启动检查通过，未载入游戏",
+    "passed": true,
+    "test": "process-startup",
+    "arguments": [],
+    "exit_code": 1,
+    "stopped_after_timeout": true,
+    "log": "logs/help-desmume.txt"
+  },
+  "bizhawk": {
+    "summary": "启动检查通过，未载入游戏",
+    "passed": true,
+    "test": "process-startup",
+    "arguments": [],
+    "exit_code": 1,
+    "stopped_after_timeout": true,
+    "log": "logs/help-bizhawk.txt"
+  },
+  "ppsspp": {
+    "summary": "启动检查通过，未载入游戏",
+    "passed": true,
+    "test": "process-startup",
+    "arguments": [],
+    "exit_code": 1,
+    "stopped_after_timeout": true,
+    "log": "logs/help-ppsspp.txt"
+  },
+  "ilspy": {
+    "summary": "启动检查通过，未载入游戏",
+    "passed": true,
+    "test": "process-startup",
+    "arguments": [],
+    "exit_code": 1,
+    "stopped_after_timeout": true,
+    "log": "logs/help-ilspy.txt"
+  },
+  "fmodel": {
+    "summary": "启动检查通过，未载入游戏",
+    "passed": true,
+    "test": "process-startup",
+    "arguments": [],
+    "exit_code": 1,
+    "stopped_after_timeout": true,
+    "log": "logs/help-fmodel.txt"
+  },
+  "x64dbg": {
+    "summary": "启动检查通过，未载入游戏",
+    "passed": true,
+    "test": "process-startup",
+    "arguments": [],
+    "exit_code": 1,
+    "stopped_after_timeout": true,
+    "log": "logs/help-x64dbg.txt"
+  },
+  "objdiff": {
+    "summary": "启动检查通过，未载入游戏",
+    "passed": true,
+    "test": "process-startup",
+    "arguments": [],
+    "exit_code": 1,
+    "stopped_after_timeout": true,
+    "log": "logs/help-objdiff.txt"
+  },
+  "cpp2il-preview": {
+    "summary": "命令行检查通过",
+    "passed": true,
+    "test": "cli-help-or-version",
+    "arguments": [
+      "--help"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-cpp2il-preview.txt"
+  },
+  "pcsx-redux": {
+    "summary": "启动检查通过，未载入游戏",
+    "passed": true,
+    "test": "process-startup",
+    "arguments": [],
+    "exit_code": 1,
+    "stopped_after_timeout": true,
+    "log": "logs/help-pcsx-redux.txt"
+  },
+  "ghidra": {
+    "summary": "无界面导入验证通过",
+    "passed": true,
+    "test": "synthetic-x86-binary-import-without-analysis",
+    "arguments": [
+      "F:\\GameAnalysisToolkit\\work\\smoke-samples\\ghidra-projects",
+      "LocalSmoke",
+      "-import",
+      "F:\\GameAnalysisToolkit\\work\\smoke-samples\\return7.bin",
+      "-loader",
+      "BinaryLoader",
+      "-processor",
+      "x86:LE:32:default",
+      "-noanalysis",
+      "-overwrite"
+    ],
+    "exit_code": 0,
+    "stopped_after_timeout": false,
+    "log": "logs/help-ghidra-headless.txt"
+  },
+  "cue4parse": {
+    "summary": "开发库离线编译通过",
+    "passed": true,
+    "test": "local-sdk-build-no-restore",
+    "version": "1.2.2.202611",
+    "log": "logs/cue4parse-build.txt"
+  }
+}

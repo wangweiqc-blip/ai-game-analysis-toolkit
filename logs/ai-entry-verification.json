@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "scope": "AI query and invocation contract, synthetic NDS sample only",
+  "entries": 39,
+  "routes": 16,
+  "checks": [
+    "all registry entries classified; routes, alternatives and local docs resolve",
+    "JSON queries, Chinese routing, automation distinctions and unknown IDs",
+    "installed entry files and known runtimes; missing file correctly reported",
+    "resolved invocation array runs bundled ndspy and returns sample ROM file inventory",
+    "run forwards Unicode/spaces and preserves child exit code"
+  ]
+}

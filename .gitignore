@@ -1,0 +1,10 @@
+apps/
+runtime/
+cache/
+research/
+work/
+__pycache__/
+*.pyc
+*.7z
+*.7z.*
+*.zip

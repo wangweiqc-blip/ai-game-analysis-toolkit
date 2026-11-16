@@ -1,0 +1,9 @@
+usage: nds_info.py [-h] rom
+
+列出 NDS ROM 内部文件，不修改原始文件。
+
+positional arguments:
+  rom
+
+options:
+  -h, --help  show this help message and exit

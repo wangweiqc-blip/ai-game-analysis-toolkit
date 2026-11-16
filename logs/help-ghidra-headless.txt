@@ -1,0 +1,51 @@
+INFO  Using log config file: jar:file:/F:/GameAnalysisToolkit/apps/ghidra/ghidra_12.2_PUBLIC/Ghidra/Framework/Generic/lib/Generic.jar!/generic.log4j.xml (LoggingInitialization)  
+INFO  Using log file: <USER_HOME>\AppData\Roaming\ghidra\ghidra_12.2_PUBLIC\application.log (LoggingInitialization)  
+INFO  Loading user preferences: <USER_HOME>\AppData\Roaming\ghidra\ghidra_12.2_PUBLIC\preferences (Preferences)  
+INFO  Searching for classes... (ClassSearcher)  
+INFO  Class search complete (1877 ms) (ClassSearcher)  
+INFO  Initializing SSL Context (DefaultSSLContextInitializer)  
+INFO  Initializing Random Number Generator... (SecureRandomFactory)  
+INFO  Random Number Generator initialization complete: SHA1PRNG (SecureRandomFactory)  
+INFO  Loaded 84 trusted CA certificates from the OS trust store. (DefaultTrustManagerFactory)  
+INFO  Loaded 118 trusted CA certificates from the Java default trust store. (DefaultTrustManagerFactory)  
+INFO  Headless startup complete (6093 ms) (AnalyzeHeadless)  
+INFO  Class searcher loaded 96 extension points (47 false positives) (ClassSearcher)  
+INFO  HEADLESS Script Paths:
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\BSim\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\SystemEmulation\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Debug\Debugger\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\DecompilerDependent\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\PyGhidra\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\WildcardAssembler\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\BytePatterns\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Debug\Debugger-rmi-trace\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\Decompiler\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Processors\8051\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\PDB\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Processors\Atmel\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Processors\DATA\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Processors\JVM\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Processors\PIC\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\FileFormats\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\Base\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\MicrosoftCodeAnalyzer\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\VersionTracking\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\FunctionID\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\GnuDemangler\ghidra_scripts
+    F:\GameAnalysisToolkit\apps\ghidra\ghidra_12.2_PUBLIC\Ghidra\Features\Swift\ghidra_scripts (HeadlessAnalyzer)  
+INFO  HEADLESS: execution starts (HeadlessAnalyzer)  
+INFO  Opening existing project: F:\GameAnalysisToolkit\work\smoke-samples\ghidra-projects\LocalSmoke (HeadlessAnalyzer)  
+INFO  Opening project: F:\GameAnalysisToolkit\work\smoke-samples\ghidra-projects\LocalSmoke (HeadlessProject)  
+INFO  REPORT: Processing input files:  (HeadlessAnalyzer)  
+INFO       project: F:\GameAnalysisToolkit\work\smoke-samples\ghidra-projects\LocalSmoke (HeadlessAnalyzer)  
+INFO  IMPORTING: file:///F:/GameAnalysisToolkit/work/smoke-samples/return7.bin (HeadlessAnalyzer)  
+INFO  Using Loader: Raw Binary (ProgramLoader)  
+INFO  Using Language/Compiler: x86:LE:32:default:windows (ProgramLoader)  
+INFO  Using Library Search Path: [., C:\Windows\SysWOW64, F:\GameAnalysisToolkit\runtime\java\jdk-25.0.5+8\bin, C:\Windows\Sun\Java\bin, C:\Windows\system32, C:\Windows, F:\GameAnalysisToolkit\runtime\dotnet, F:\GameAnalysisToolkit\runtime\python, F:\GameAnalysisToolkit\runtime\python\Scripts, <USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\powershell, <USER_HOME>\.codex\tmp\arg0-windows\codex-arg0JxSqMN, <USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\libheif\libheif\bin, <USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\jxrlib\jxrlib\bin, <USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin, <USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\bin\override, C:\ProgramData\Oracle\Java\javapath, C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common, C:\Program Files (x86)\Common Files\Oracle\Java\javapath, C:\Windows\System32\Wbem, C:\Windows\System32\WindowsPowerShell\v1.0\, C:\Windows\System32\OpenSSH\, C:\Program Files\TortoiseSVN\bin, C:\Program Files\Git\cmd, C:\Program Files\TortoiseGit\bin, C:\Program Files\Bandizip\, C:\Program Files\dotnet\, C:\Program Files\nodejs\, C:\Program Files\Go\bin, C:\Program Files (x86)\NetSarang\Xftp 8\, <USER_HOME>\AppData\Local\Microsoft\WindowsApps, D:\Programs\Microsoft VS Code\bin, <USER_HOME>\AppData\Local\Microsoft\WinGet\Packages\OpenJS.NodeJS.LTS_Microsoft.Winget.Source_8wekyb3d8bbwe\node-v24.15.0-win-x64, <USER_HOME>\AppData\Roaming\npm, <USER_HOME>\go\bin, <USER_HOME>\AppData\Roaming\JumpServer\Client\, <USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\bin\fallback, <USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin, <USER_HOME>\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\git\cmd, <USER_HOME>\AppData\Local\OpenAI\Codex\bin\ce4759538b7f2f1a, <USER_HOME>\AppData\Local\OpenAI\Codex\bin\896a0166b774037a] (ProgramLoader)  
+INFO  IMPORTING: Loaded 0 additional files (HeadlessAnalyzer)  
+INFO  /return7.bin: file deleted (wangw) (LocalFileSystem)  
+INFO  Deleted local file return7.bin (GhidraFileData)  
+WARN  REPORT: Removed conflicting program file from project: /return7.bin (HeadlessAnalyzer)  
+INFO  /return7.bin: file created (wangw) (LocalFileSystem)  
+INFO  REPORT: Save succeeded for: /return7.bin (LocalSmoke:/return7.bin) (HeadlessAnalyzer)  
+INFO  REPORT: Import succeeded (HeadlessAnalyzer)  
