@@ -8,9 +8,17 @@
 
 完整 Windows x64 运行包见 [Releases](https://github.com/wangweiqc-blip/ai-game-analysis-toolkit/releases/latest)。仓库代码不包含可执行程序，直接下载 GitHub 的 Source code 不能替代完整运行包。
 
-下载同一版本的全部 `GameAnalysisToolkit-win-x64.7z.*` 分卷到同一目录，用 7-Zip 打开 `.001` 并解压。建议解压到 `F:/`，得到 `F:/GameAnalysisToolkit`。压缩包包含工具、Python、Java、.NET、NuGet 与 Python 依赖，以及本地研究源码；解压后日常调用无需重复安装下载。
+下载同一版本的全部附件。第二卷使用较小的数据块上传，以避免长连接中断；由 AI 运行随包的 `Restore-Parts.ps1` 自动校验并合并，再用 7-Zip 解压 `.001`。建议解压到 `F:/`，得到 `F:/GameAnalysisToolkit`。
 
-`SHA256SUMS.txt` 与 `release-manifest.json` 提供各分卷的大小和校验值。展开后约需 4 GB，解压期间还需容纳下载的分卷。包内保留原工具自带的许可与说明，原始下载包的重复备份不再打入运行包。
+```powershell
+# 将 Release 的全部附件下载到同一文件夹后，由 AI 执行：
+& './Restore-Parts.ps1'
+# 再用本机 7-Zip 解压 GameAnalysisToolkit-win-x64.7z.001
+```
+
+`release-manifest.json` 的 `download_files` 给出每个附件的 URL、大小和 SHA-256；AI 可按此清单下载。脚本只在本地校验并合并文件，不联网安装软件。`SHA256SUMS.txt` 提供独立校验清单。
+
+运行包包含全部工具、Python、Java、.NET、依赖缓存和研究源码，合并后的两个分卷与已通过完整 CRC 检查的原包逐字节一致。解压后日常调用无需重复下载。压缩包合计约 1.51 GiB，解压约 3.69 GiB；合并和解压期间需同时容纳下载块、分卷和解压结果。重复的原始安装包备份未再次打入运行包。
 
 ## 给 AI 的入口
 
